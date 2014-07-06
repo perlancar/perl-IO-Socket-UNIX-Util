@@ -20,25 +20,38 @@ sub create_unix_socket {
     my ($path, $mode) = @_;
 
     my $old_locale = setlocale(LC_ALL);
+
+    my $sock;
+
     setlocale(LC_ALL, "C"); # so that error messages are in English
-
     # probe the Unix socket first, delete if stale
-    my $sock = IO::Socket::UNIX->new(
-        Type => SOCK_STREAM,
-        Peer => $path,
-    );
-    my $err = $@ unless $sock;
-    if ($sock) {
-        die "Some process is already listening on $path, aborting";
-    } elsif ($err =~ /^connect: permission denied/i) {
-        die "Cannot access $path, aborting";
-    } elsif (1) { #$err =~ /^connect: connection refused/i) {
-        unlink $path;
-    } elsif ($err !~ /^connect: no such file/i) {
-        die "Cannot bind to $path: $err";
+    {
+        $sock = IO::Socket::UNIX->new(
+            Type => SOCK_STREAM,
+            Peer => $path,
+        );
+        my $err = $@ unless $sock;
+        if ($sock) {
+            die "Some process is already listening on $path, aborting";
+        } elsif ($err =~ /^connect: permission denied/i) {
+            die "Cannot access $path, aborting";
+        } elsif (1) { #$err =~ /^connect: connection refused/i) {
+            unlink $path;
+        } elsif ($err !~ /^connect: no such file/i) {
+            die "Cannot bind to $path: $err";
+        }
     }
-
     setlocale(LC_ALL, $old_locale);
+
+    # XXX this is a race condition
+
+    # create listening socket now
+    $sock = IO::Socket::UNIX->new(
+        Type   => SOCK_STREAM,
+        Local  => $path,
+        Listen => 1,
+    );
+    die "Can't create listening Unix socket: $@" unless $sock;
 
     if (defined $mode) {
         warn "Can't chmod $path: $!" unless chmod($mode, $path);
