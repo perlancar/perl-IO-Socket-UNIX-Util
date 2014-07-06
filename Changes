@@ -1,5 +1,10 @@
 Revision history for SHARYANTO-IO-Socket-Utils
 
+0.03    2014-07-06 (SHARYANTO)
+
+        - Add functions: create_unix_{stream,datagram}_socket().
+
+
 0.02    2014-07-06 (SHARYANTO)
 
         - [Bugfix] create_unix_socket(): forgot to actually create listening socket.
