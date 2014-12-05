@@ -1,4 +1,9 @@
-Revision history for SHARYANTO-IO-Socket-Utils
+Revision history for IO-Socket-UNIX-Util
+
+0.04    2014-12-05 (PERLANCAR) (unreleased)
+
+        - Rename dist from SHARYANTO-IO-Socket-Utils to IO-Socket-UNIX-Util.
+
 
 0.03    2014-07-06 (SHARYANTO)
 

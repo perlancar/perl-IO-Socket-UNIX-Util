@@ -1,4 +1,7 @@
-package SHARYANTO::IO::Socket::UNIX::Util;
+package IO::Socket::UNIX::Util;
+
+# DATE
+# VERSION
 
 use 5.010001;
 use strict;
@@ -6,9 +9,6 @@ use warnings;
 
 use IO::Socket::UNIX;
 use POSIX qw(locale_h);
-
-# DATE
-# VERSION
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -109,10 +109,5 @@ which is the default anyway.
 Shortcut for:
 
  create_unix_socket($path, $mode, {Type=>SOCK_DGRAM, %opts});
-
-
-=head1 SEE ALSO
-
-L<SHARYANTO>
 
 =cut
