@@ -1,4 +1,4 @@
-0.05    2014-12-05 (PERLANCAR)
+0.05    2014-12-05  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -6,21 +6,21 @@
 	  IO-Socket-UNIX-Util.
 
 
-0.04    2014-12-05 (PERLANCAR) (unreleased)
+0.04    2014-12-05 (PERLANCAR)  Released-By: unreleased
 
         - Rename dist from SHARYANTO-IO-Socket-Utils to IO-Socket-UNIX-Util.
 
 
-0.03    2014-07-06 (SHARYANTO)
+0.03    2014-07-06  Released-By: SHARYANTO
 
         - Add functions: create_unix_{stream,datagram}_socket().
 
 
-0.02    2014-07-06 (SHARYANTO)
+0.02    2014-07-06  Released-By: SHARYANTO
 
         - [Bugfix] create_unix_socket(): forgot to actually create listening socket.
 
 
-0.01    2014-07-06 (SHARYANTO)
+0.01    2014-07-06  Released-By: SHARYANTO
 
         - First release.
