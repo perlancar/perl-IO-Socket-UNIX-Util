@@ -6,7 +6,7 @@
 	  IO-Socket-UNIX-Util.
 
 
-0.04    2014-12-05 (PERLANCAR)  Released-By: unreleased
+0.04    2014-12-05  Released-By: PERLANCAR; Released: no
 
         - Rename dist from SHARYANTO-IO-Socket-Utils to IO-Socket-UNIX-Util.
 
@@ -24,3 +24,4 @@
 0.01    2014-07-06  Released-By: SHARYANTO
 
         - First release.
+
